@@ -9,13 +9,13 @@ Send an email according from/to configuration with the public and private IP.
 Configuration
 -------------
 
-#Make it executable
+# Make it executable
 
 ````
 sudo chmod +x ip_on_boot.py
 ````
 
-#Debian
+# Debian
 
 ````
 sudo nano /boot/boot.rc
@@ -27,7 +27,7 @@ You must modify the following piece of code according your script location.
 python /home/pi/ip_on_boot.py
 ````
 
-#Raspbian
+# Raspbian
 
 ````
 sudo nano /etc/rc.local
@@ -36,7 +36,7 @@ sudo nano /etc/rc.local
 You must modify the following piece of code according your script location.
 
 ````
-# rc.local
+ # rc.local
  #
  # This script is executed at the end of each multiuser runlevel.
  # Make sure that the script will "exit 0" on success or any other
