@@ -11,9 +11,7 @@ to = 'XXXXX@XXXX.XXX'
 gmail_user = 'XXXXXXX@XXXX.XXX'
 gmail_password = 'XXXXX'
 #GMAIL SMTP CONFIGURATION
-smtpserver = smtplib.SMTP('smtp.gmail.com', 587)
-smtpserver.ehlo()
-smtpserver.starttls()
+smtpserver = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 smtpserver.login(gmail_user, gmail_password)
 today = datetime.date.today()
 
@@ -29,7 +27,7 @@ publicIP = urlopen('http://ipecho.net/plain')
 #Prepare mail content and from/to config
 my_ip = 'Your local IP is %s and your public IP is %s' %  (localIP,publicIP.read())
 msg = MIMEText(my_ip)
-msg['Subject'] = 'IP For RaspberryPi on %s' % today.strftime('%b %d %Y')
+msg['Subject'] = '[%s] IP For RaspberryPi on %s' % (socket.gethostname(),today.strftime('%b %d %Y'))
 msg['From'] = gmail_user
 msg['To'] = to
 smtpserver.sendmail(gmail_user, [to], msg.as_string())
